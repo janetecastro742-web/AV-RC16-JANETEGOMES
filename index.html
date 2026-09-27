@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Janete Pereira Gomes Castro | Avaliação Virtual 2</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f7f6;
+            color: #263238;
+            line-height: 1.6;
+        }
+
+        /* CABEÇALHO */
+        header {
+            background: linear-gradient(135deg, #006b3c, #009b5a);
+            color: white;
+            padding: 20px 8%;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #d7ffe8;
+        }
+
+        /* CAPA */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 50px 20px;
+            background:
+                linear-gradient(rgba(0, 91, 52, 0.88), rgba(0, 107, 60, 0.88)),
+                radial-gradient(circle at top right, #25b56b, transparent 40%);
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .hero h1 {
+            font-size: clamp(38px, 7vw, 70px);
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+
+        .hero h2 {
+            font-size: clamp(20px, 3vw, 32px);
+            font-weight: normal;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+
+        .badge {
+            display: inline-block;
+            background: white;
+            color: #006b3c;
+            padding: 10px 22px;
+            border-radius: 30px;
+            margin-top: 25px;
+            font-weight: bold;
+        }
+
+        /* SEÇÕES */
+        section {
+            padding: 80px 8%;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #006b3c;
+            font-size: 32px;
+            margin-bottom: 45px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        /* SOBRE */
+        .about {
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 15px;
+            font-size: 17px;
+        }
+
+        .info-card {
+            background: #eef8f2;
+            border-left: 6px solid #009b5a;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+
+        .info-card h3 {
+            color: #006b3c;
+            margin-bottom: 20px;
+        }
+
+        .info-card p {
+            margin: 10px 0;
+        }
+
+        /* TECNOLOGIA */
+        .technology {
+            background: #f4f7f6;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.14);
+        }
+
+        .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            color: #006b3c;
+            margin-bottom: 12px;
+        }
+
+        /* OBJETIVO */
+        .objective {
+            background: white;
+        }
+
+        .objective-box {
+            max-width: 900px;
+            margin: auto;
+            background: linear-gradient(135deg, #006b3c, #009b5a);
+            color: white;
+            padding: 45px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .objective-box p {
+            font-size: 18px;
+        }
+
+        /* RODAPÉ */
+        footer {
+            background: #004d2b;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        footer p {
+            margin: 5px;
+        }
+
+        .year {
+            margin-top: 10px;
+            opacity: 0.8;
+        }
+
+        /* RESPONSIVIDADE */
+        @media (max-width: 800px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 12px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                min-height: 80vh;
+            }
+
+            section {
+                padding: 60px 6%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- CABEÇALHO -->
+    <header>
+        <nav>
+            <div class="logo">IF BAIANO</div>
+
+            <ul>
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#disciplina">Disciplina</a></li>
+                <li><a href="#objetivo">Objetivo</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- INÍCIO -->
+    <section class="hero" id="inicio">
+        <div class="hero-content">
+
+            <p>INSTITUTO FEDERAL BAIANO</p>
+
+            <h1>Janete Pereira Gomes Castro</h1>
+
+            <h2>Técnico em Redes de Computadores</h2>
+
+            <p>
+                Apresentação da aluna como parte da
+                disciplina de Computação em Nuvem e Virtualização.
+            </p>
+
+            <div class="badge">
+                Avaliação Virtual 2
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SOBRE A ALUNA -->
+    <section class="about" id="sobre">
+        <div class="container">
+
+            <h2 class="section-title">Sobre a Aluna</h2>
+
+            <div class="about-content">
+
+                <div class="about-text">
+
+                    <p>
+                        Olá! Meu nome é <strong>Janete Pereira Gomes Castro</strong>
+                        e sou estudante do curso Técnico em Redes de Computadores
+                        do Instituto Federal Baiano (IF Baiano).
+                    </p>
+
+                    <p>
+                        Esta página foi desenvolvida como parte da
+                        <strong>Avaliação Virtual 2</strong> da disciplina
+                        de <strong>Computação em Nuvem e Virtualização</strong>.
+                    </p>
+
+                    <p>
+                        O objetivo é apresentar uma página web utilizando
+                        tecnologias básicas de desenvolvimento web, demonstrando
+                        conhecimentos relacionados à criação e publicação de
+                        aplicações em ambientes computacionais.
+                    </p>
+
+                </div>
+
+                <div class="info-card">
+
+                    <h3>Informações Acadêmicas</h3>
+
+                    <p><strong>Aluna:</strong> Janete Pereira Gomes Castro</p>
+
+                    <p>
+                        <strong>Curso:</strong>
+                        Técnico em Redes de Computadores
+                    </p>
+
+                    <p>
+                        <strong>Instituição:</strong>
+                        Instituto Federal Baiano – IF Baiano
+                    </p>
+
+                    <p>
+                        <strong>Disciplina:</strong>
+                        Computação em Nuvem e Virtualização
+                    </p>
+
+                    <p>
+                        <strong>Atividade:</strong>
+                        Avaliação Virtual 2
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- DISCIPLINA -->
+    <section class="technology" id="disciplina">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Computação em Nuvem e Virtualização
+            </h2>
+
+            <div class="cards">
+
+                <div class="card">
+
+                    <div class="icon">☁️</div>
+
+                    <h3>Computação em Nuvem</h3>
+
+                    <p>
+                        Modelo que permite utilizar recursos computacionais,
+                        como armazenamento, processamento e aplicações,
+                        por meio da internet.
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <div class="icon">🖥️</div>
+
+                    <h3>Virtualização</h3>
+
+                    <p>
+                        Tecnologia que permite criar ambientes virtuais
+                        utilizando os recursos de um computador físico,
+                        possibilitando maior aproveitamento da infraestrutura.
+                    </p>
+
+                </div>
+
+                <div class="card">
+
+                    <div class="icon">🌐</div>
+
+                    <h3>Redes de Computadores</h3>
+
+                    <p>
+                        Área responsável pela comunicação entre dispositivos,
+                        permitindo o compartilhamento de informações,
+                        serviços e recursos.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- OBJETIVO -->
+    <section class="objective" id="objetivo">
+
+        <div class="container">
+
+            <h2 class="section-title">Objetivo da Atividade</h2>
+
+            <div class="objective-box">
+
+                <p>
+                    Desenvolver e apresentar uma página web estática,
+                    utilizando HTML e CSS em um único arquivo, como parte
+                    da Avaliação Virtual 2 da disciplina de Computação em
+                    Nuvem e Virtualização.
+                </p>
+
+                <br>
+
+                <p>
+                    A atividade possibilita colocar em prática conceitos
+                    relacionados ao desenvolvimento web e à disponibilização
+                    de aplicações em ambientes de computação em nuvem.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer>
+
+        <p>
+            <strong>Janete Pereira Gomes Castro</strong>
+        </p>
+
+        <p>
+            Técnico em Redes de Computadores – IF Baiano
+        </p>
+
+        <p>
+            Computação em Nuvem e Virtualização
+        </p>
+
+        <p class="year">
+            Avaliação Virtual 2 • 2026
+        </p>
+
+    </footer>
+
+</body>
+</html>
